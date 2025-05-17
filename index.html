@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>C++ Practical Projects</title>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1f1f2e, #121212);
+    color: #e0e0e0;
+    padding: 30px;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Password input container */
+  #passwordBox {
+    margin-top: 120px;
+    text-align: center;
+    width: 320px;
+    padding: 30px 25px;
+    background: #23232f;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  }
+
+  #passwordBox h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    color: #f5f5f7;
+  }
+
+  /* Password input */
+  input[type="password"] {
+    font-size: 1.1rem;
+    padding: 12px 15px;
+    width: 100%;
+    background: #2e2e3e;
+    border: 1.5px solid #555a8e;
+    border-radius: 8px;
+    color: #ddd;
+    transition: border-color 0.3s ease;
+  }
+  input[type="password"]::placeholder {
+    color: #999abf;
+  }
+  input[type="password"]:focus {
+    border-color: #7c85ff;
+    outline: none;
+    box-shadow: 0 0 6px #7c85ffaa;
+  }
+
+  /* Submit button */
+  button {
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    margin-top: 20px;
+    cursor: pointer;
+    background: #5a5fff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    box-shadow: 0 4px 10px #4a4ad9cc;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  button:hover {
+    background: #4646e1;
+    box-shadow: 0 6px 15px #3a3ab7cc;
+  }
+
+  /* Error message */
+  #error {
+    color: #ff6b6b;
+    margin-top: 12px;
+    font-weight: 600;
+    min-height: 22px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Content container */
+  #content {
+    max-width: 900px;
+    margin-top: 50px;
+    display: none;
+  }
+
+  /* Headings inside content */
+  #content h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+    text-align: center;
+    color: #d7d7ff;
+    letter-spacing: 0.05em;
+  }
+
+  #content section {
+    background: #28283d;
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 18px rgba(40, 40, 61, 0.7);
+    transition: background 0.3s ease;
+  }
+  #content section:hover {
+    background: #323255;
+  }
+
+  #content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #a8a8ff;
+  }
+
+  /* Code blocks */
+  pre {
+    background: #1e1e2f;
+    color: #cfd8ff;
+    padding: 20px;
+    overflow-x: auto;
+    max-height: 350px;
+    border-radius: 10px;
+    font-family: 'Source Code Pro', monospace, monospace;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    box-shadow: inset 0 0 12px #000a;
+    user-select: text;
+  }
+</style>
+</head>
+<body>
+
+<div id="passwordBox">
+  <h2>Enter Password to View Projects</h2>
+  <input type="password" id="passwordInput" placeholder="Enter password" />
+  <button onclick="checkPassword()">Submit</button>
+  <div id="error"></div>
+</div>
+
+<div id="content">
+<h1>My 10 C++ Projects Code</h1>
+
+<section>
+  <h2>Project 1: Swap Numbers</h2>
+  <pre>
+#include <iostream>
+using namespace std;
+int main() {
+	int a,b,temp;
+	cout << "Enter First Number: ";
+	cin >> a;
+
+	cout << "Enter Second Number: ";
+	cin >> b;
+
+	cout << "Numbers before swapping: " << a << " " << b << endl;
+
+	temp = a;
+	a = b;
+	b = temp;
+
+	cout << "Number after swapping: " << a << " " << b << endl;
+
+	return 0;
+}
+  </pre>
+  <pre>
+Enter First Number: 12
+Enter Second Number: 31
+Numbers before swapping: 12 31
+Number after swapping: 31 12
+  </pre>
+
+</section>
+
+<section>
+  <h2>Project 2: Calculating Salary of an employee given his basic pay. Calculate salary of the employee. Let HRA be "10%" of basic pay and TA be "5%" of basic pay. Let employees pay professional tax as "2%" of total salary. Calculate salary payable after deductions.</h2>
+  <pre>
+#include <iostream>
+using namespace std;
+
+int main () {
+	float basic_pay, HRA, TA, total_salary, professional_tax, net_salary;
+
+	cout << "Enter the basic pay: ";
+	cin >> basic_pay;
+
+	HRA = 0.10*basic_pay;
+	TA = 0.05*basic_pay;
+
+	total_salary = basic_pay + HRA + TA;
+
+	professional_tax = 0.02*total_salary;
+
+	net_salary = total_salary - professional_tax;
+
+	cout << "Basic Pay: " << basic_pay << endl;
+	cout << "HRA (10% of Basic Pay): " << HRA << endl;
+	cout << "TA (5% of Basic Pay): " << TA << endl;
+	cout << "Total Salary before deductions: " << total_salary << endl;
+	cout << "Professional Tax (2% of Total Salary): " << professional_tax << endl;
+	cout << "net Payable Salary: " << net_salary << endl;
+
+	return 0;
+
+}	
+  </pre>
+  <pre>
+Enter the basic pay: 50000
+Basic Pay: 50000
+HRA (10% of Basic Pay): 5000
+TA (5% of Basic Pay): 2500
+Total Salary before deductions: 57500
+Professional Tax (2% of Total Salary): 1150
+net Payable Salary: 56350
+  </pre>
+</section>
+
+<section>
+<h2>Project 3: Calculating Marks of 5 subjects from the user</h2>
+<pre>
+#include <iostream>
+using namespace std;
+
+int main() {
+    float sub1, sub2, sub3, sub4, sub5, total_marks, aggregate_marks;
+
+    cout << "(NOTE: Enter Marks out of 100)" << endl << "Enter Marks of First Subject: ";
+    cin >> sub1;
+
+    cout << "Enter Marks of Second Subject: ";
+    cin >> sub2;
+
+    cout << "Enter Marks of Third Subject: ";
+    cin >> sub3;
+
+    cout << "Enter Marks of Fourth Subject: ";
+    cin >> sub4;
+
+    cout << "Enter Marks of Fifth Subject: ";
+    cin >> sub5;
+
+    total_marks = sub1 + sub2 + sub3 + sub4 + sub5;
+    aggregate_marks = (total_marks/500) * 100;
+
+    if (aggregate_marks >= 75) {
+        cout << "Grade: Distinction" << endl;
+    }
+
+    else if (aggregate_marks >= 60 && aggregate_marks < 75) {
+        cout << "Grade: First Division" << endl;
+    }
+
+    else if (aggregate_marks >= 50 && aggregate_marks < 60) {
+        cout << "Grade: Second Division" << endl;
+    }
+
+    else if (aggregate_marks >= 40 && aggregate_marks < 50) {
+        cout << "Grade: Third Division" << endl;
+    }
+
+    else {
+        cout << "Fail" << endl;
+    }
+
+    return 0;
+}
+</pre>
+<pre>
+(NOTE: Enter Marks out of 100)
+Enter Marks of First Subject: 84
+Enter Marks of Second Subject: 56
+Enter Marks of Third Subject: 64
+Enter Marks of Fourth Subject: 78
+Enter Marks of Fifth Subject: 99
+Grade: Distinction
+</pre>
+</section>
+
+<section>
+<h2>Project 4: Armstrong Number</h2>
+<pre>
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num, originalNum, remainder, cube, result=0;
+
+    cout << "Enter a Three Digit Number: ";
+    cin >> num;
+
+    originalNum = num;
+
+    while (originalNum != 0) {
+        remainder = originalNum % 10;
+        cube = remainder * remainder * remainder;
+        result = result + cube;
+        originalNum /= 10;
+    }
+
+    if (result == num) {
+        cout << num << " is an Armstrong Number." << endl;
+    }
+
+    else {
+        cout << num << " is not an Armstrong Number" << endl;
+    }
+
+    result 0;
+}
+</pre>
+<pre>
+Enter a Three Digit Number: 153
+153 is an Armstrong Number.
+
+Enter a Three Digit Number: 123
+123 is not an Armstrong Number
+</pre>
+</section>
+
+<section>
+<h2>Project 5: Average</h2>
+<pre>
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "Enter the no. of Elements: ";
+    cin >> n;
+
+    int arr[n];
+
+    int sum = 0;
+
+    cout << "Enter " << n << " elements: " << endl;
+
+    for (int i=0; i<n; i++) {
+        cin >> arr[i];
+        sum += arr[i];
+    }
+
+    float average = sum/n;
+
+    cout << "the Average of the array elements is: " << average << endl;
+
+    return 0;
+}
+</pre>
+<pre>
+Enter the no. of Elements: 5
+Enter 5 elements: 
+1
+2
+3
+4
+5
+the Average of the array elements is: 3
+</pre>
+
+<section>
+<h2>Project 6: Palindrome</h2>
+<pre>
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string str, reversedStr;
+
+    cout << "Enter a String: ";
+    cin >> str;
+
+    reversedStr = str;
+
+    reverse (reversedStr.begin(), reversedStr.end());
+
+    if (str == reversedStr) {
+        cout << str << " is a Palindrome." << endl;
+    }
+
+    else {
+        cout << str << " is not a Palindrome." << endl;
+    }
+
+    return 0;
+}
+</pre>
+<pre>
+Enter a String: dad
+dad is a Palindrome.
+
+Enter a String: run
+run is not a Palindrome.
+</pre>
+</section>
+
+<section>
+<h2>Project 7: Vowels and Consonants</h2>
+<pre>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string str;
+    int vowels = 0, consonants = 0;
+
+    cout << "Enter a String: ";
+    getline(cin, str);
+
+    for (int i = 0; i < str.length(); i++) {
+        char ch = tolower(str[i]);
+        if ((ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')) {
+            vowels++;
+        } else if ((ch >= 'a' && ch <= 'z')) {
+            consonants++;
+        }
+    }
+
+    cout << "No. of Vowels: " << vowels << endl;
+    cout << "No. of Consonants: " << consonants << endl;
+
+    return 0;
+}
+</pre>
+<pre>
+Enter a String: dead
+No. of Vowels: 2
+No. of Consonants: 2
+</pre>
+</section>
+
+<section>
+<h2>Project 8: Factorial (with a function)</h2>
+<pre>
+#include <iostream>
+using namespace std;
+
+int factorial (int n) {
+    if (n <= 0) {
+        return -1;
+    }
+
+    int fact = 1;
+    
+    for (int i=1; i<=n; i++) {
+        fact *= i;
+    }
+
+    return fact;
+}
+
+int main () {
+    int num;
+
+    cout << "Enter no. of which you want Factorial of: ";
+    cin >> num;
+
+    int result = factorial(num);
+
+    if (result != -1) {
+        cout << "The Factorial is: " << result << endl;
+    }
+    else {
+        cout << "Factorial is not defined: " << endl;
+    }
+
+    return 0;
+}
+</pre>
+<pre>
+Enter no. of which you want Factorial of: 5
+The Factorial is: 120
+</pre>
+</section>
+
+<section>
+<h2>Project 9: Prime number or not</h2>
+<pre>
+#include <iostream>
+using namespace std;
+
+bool prime(int n) {
+    if (n<0) {
+        return false;
+    }
+
+    for (int i=2; i <= n/2; i++) {
+        if (n % 1 == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    int num;
+
+    cout << "Enter a no.: " << endl;
+    cin >> num;
+
+    if (prime(num)) {
+        cout << "Number is Prime" << endl;
+    }
+
+    else {
+        cout << "Number is not Prime" << endl;
+    }
+
+    return 0;
+}
+</pre>
+<pre>
+Enter a no.: 
+2
+Number is Prime
+
+Enter a no.: 
+9
+Number is not Prime
+</pre>
+</section></div>
+
+<script>
+  const password = "Aarya@#2006"; // Change this password
+
+  function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+    const errorDiv = document.getElementById("error");
+
+    if (input === password) {
+      document.getElementById("passwordBox").style.display = "none";
+      document.getElementById("content").style.display = "block";
+    } else {
+      errorDiv.textContent = "Incorrect password. Try again.";
+      document.getElementById("passwordInput").value = "";
+    }
+  }
+
+  // Optional: Allow pressing Enter key to submit password
+  document.getElementById("passwordInput").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+      checkPassword();
+    }
+  });
+</script>
+
+</body>
+</html>
