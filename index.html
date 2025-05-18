@@ -150,7 +150,7 @@ body {
 
 <section>
   <h2>Project 1: Swap Numbers</h2>
-  <pre id="codeBlock">
+  <pre id="cpp1">
 #include &lt;iostream&gt;
 using namespace std;
 int main() {
@@ -172,9 +172,7 @@ int main() {
 	return 0;
 }
   </pre>
-<button onclick="copyCode()" style="margin-top: 10px; padding: 5px 10px; cursor: pointer;">
-  📋 Copy Code
-</button>
+<button onclick="copyCode('cpp1')">📋 Copy Code</button>
   <pre>
 Enter First Number: 12
 Enter Second Number: 31
@@ -186,7 +184,7 @@ Number after swapping: 31 12
 
 <section>
   <h2>Project 2: Calculating Salary of an employee given his basic pay. Calculate salary of the employee. Let HRA be "10%" of basic pay and TA be "5%" of basic pay. Let employees pay professional tax as "2%" of total salary. Calculate salary payable after deductions.</h2>
-  <pre id="codeBlock">
+  <pre id="cpp2">
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -216,9 +214,7 @@ int main () {
 
 }	
   </pre>
-<button onclick="copyCode()" style="margin-top: 10px; padding: 5px 10px; cursor: pointer;">
-  📋 Copy Code
-</button>
+<button onclick="copyCode('cpp2')">📋 Copy Code</button>
   <pre>
 Enter the basic pay: 50000
 Basic Pay: 50000
@@ -232,7 +228,7 @@ net Payable Salary: 56350
 
 <section>
 <h2>Project 3: Calculating Marks of 5 subjects from the user</h2>
-<pre id="codeBlock">
+<pre id="cpp3">
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -280,9 +276,7 @@ int main() {
     return 0;
 }
 </pre>
-<button onclick="copyCode()" style="margin-top: 10px; padding: 5px 10px; cursor: pointer;">
-  📋 Copy Code
-</button>
+<button onclick="copyCode('cpp3')">📋 Copy Code</button>
 <pre>
 (NOTE: Enter Marks out of 100)
 Enter Marks of First Subject: 84
@@ -296,7 +290,7 @@ Grade: Distinction
 
 <section>
 <h2>Project 4: Armstrong Number</h2>
-<pre id="codeBlock">
+<pre id="cpp4">
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -326,9 +320,7 @@ int main() {
     result 0;
 }
 </pre>
-<button onclick="copyCode()" style="margin-top: 10px; padding: 5px 10px; cursor: pointer;">
-  📋 Copy Code
-</button>
+<button onclick="copyCode('cpp4')">📋 Copy Code</button>
 <pre>
 Enter a Three Digit Number: 153
 153 is an Armstrong Number.
@@ -340,7 +332,7 @@ Enter a Three Digit Number: 123
 
 <section>
 <h2>Project 5: Average</h2>
-<pre id="codeBlock">
+<pre id="cpp5">
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -368,9 +360,7 @@ int main() {
     return 0;
 }
 </pre>
-<button onclick="copyCode()" style="margin-top: 10px; padding: 5px 10px; cursor: pointer;">
-  📋 Copy Code
-</button>
+<button onclick="copyCode('cpp5')">📋 Copy Code</button>
 <pre>
 Enter the no. of Elements: 5
 Enter 5 elements: 
@@ -384,7 +374,7 @@ the Average of the array elements is: 3
 
 <section>
 <h2>Project 6: Palindrome</h2>
-<pre id="codeBlock">
+<pre id="cpp6">
 #include &lt;iostream&gt;
 #include &lt;algorithm&gt;
 #include &lt;string&gt;
@@ -412,9 +402,7 @@ int main() {
     return 0;
 }
 </pre>
-<button onclick="copyCode()" style="margin-top: 10px; padding: 5px 10px; cursor: pointer;">
-  📋 Copy Code
-</button>
+<button onclick="copyCode('cpp6')">📋 Copy Code</button>
 <pre>
 Enter a String: dad
 dad is a Palindrome.
@@ -426,7 +414,7 @@ run is not a Palindrome.
 
 <section>
 <h2>Project 7: Vowels and Consonants</h2>
-<pre id="codeBlock">
+<pre id="cpp7">
 #include &lt;iostream&gt;
 #include &lt;string&gt;
 
@@ -454,9 +442,7 @@ int main() {
     return 0;
 }
 </pre>
-<button onclick="copyCode()" style="margin-top: 10px; padding: 5px 10px; cursor: pointer;">
-  📋 Copy Code
-</button>
+<button onclick="copyCode('cpp7')">📋 Copy Code</button>
 <pre>
 Enter a String: dead
 No. of Vowels: 2
@@ -466,7 +452,7 @@ No. of Consonants: 2
 
 <section>
 <h2>Project 8: Factorial (with a function)</h2>
-<pre id="codeBlock">
+<pre id="cpp8">
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -502,9 +488,7 @@ int main () {
     return 0;
 }
 </pre>
-<button onclick="copyCode()" style="margin-top: 10px; padding: 5px 10px; cursor: pointer;">
-  📋 Copy Code
-</button>
+<button onclick="copyCode('cpp8')">📋 Copy Code</button>
 <pre>
 Enter no. of which you want Factorial of: 5
 The Factorial is: 120
@@ -513,7 +497,7 @@ The Factorial is: 120
 
 <section>
 <h2>Project 9: Prime number or not</h2>
-<pre id="codeBlock">
+<pre id="cpp9">
 #include &lt;iostream&gt;
 using namespace std;
 
@@ -548,9 +532,7 @@ int main() {
     return 0;
 }
 </pre>
-<button onclick="copyCode()" style="margin-top: 10px; padding: 5px 10px; cursor: pointer;">
-  📋 Copy Code
-</button>
+<button onclick="copyCode('cpp9')">📋 Copy Code</button>
 <pre>
 Enter a no.: 
 2
@@ -563,13 +545,10 @@ Number is not Prime
 </section></div>
 
 <script>
-function copyCode() {
-    const code = document.getElementById("codeBlock").innerText;
+function copyCode(id) {
+    const code = document.getElementById(id).innerText;
     navigator.clipboard.writeText(code).then(() => {
       alert("Code copied to clipboard!");
-    }).catch(err => {
-      alert("Failed to copy code.");
-      console.error(err);
     });
   }
 	
