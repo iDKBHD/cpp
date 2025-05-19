@@ -431,33 +431,23 @@ Factorial: 120
 #include &lt;iostream&gt;
 using namespace std;
 
-bool prime(int n) {
-    if (n&lt;0) {
-        return false;
+bool isPrime(int n) {
+    if (n &lt; 2) return false;
+    for (int i = 2; i &lt;= n / 2; i++) {
+        if (n % i == 0) return false;
     }
-
-    for (int i=2; i &lt;= n/2; i++) {
-        if (n % 1 == 0) {
-            return false;
-        }
-    }
-
     return true;
 }
 
 int main() {
     int num;
-
-    cout &lt;&lt; "Enter a no.: " &lt;&lt; endl;
+    cout &lt;&lt; "Enter a number: ";
     cin &gt;&gt; num;
 
-    if (prime(num)) {
+    if (isPrime(num))
         cout &lt;&lt; "Number is Prime" &lt;&lt; endl;
-    }
-
-    else {
+    else
         cout &lt;&lt; "Number is not Prime" &lt;&lt; endl;
-    }
 
     return 0;
 }
