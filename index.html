@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>C++ Practical Projects</title>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1f1f2e, #121212);
+    color: #e0e0e0;
+    padding: 30px;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#passwordBox {
+    margin-top: 120px;
+    text-align: center;
+    width: 320px;
+    padding: 30px 25px;
+    background: #23232f;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+#passwordBox h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    color: #f5f5f7;
+}
+
+input[type="password"] {
+    font-size: 1.1rem;
+    padding: 12px 15px;
+    width: 100%;
+    background: #2e2e3e;
+    border: 1.5px solid #555a8e;
+    border-radius: 8px;
+    color: #ddd;
+    transition: border-color 0.3s ease;
+}
+input[type="password"]::placeholder {
+    color: #999abf;
+}
+input[type="password"]:focus {
+    border-color: #7c85ff;
+    outline: none;
+    box-shadow: 0 0 6px #7c85ffaa;
+}
+
+button {
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    margin-top: 20px;
+    cursor: pointer;
+    background: #5a5fff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    box-shadow: 0 4px 10px #4a4ad9cc;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+button:hover {
+    background: #4646e1;
+    box-shadow: 0 6px 15px #3a3ab7cc;
+}
+
+#error {
+    color: #ff6b6b;
+    margin-top: 12px;
+    font-weight: 600;
+    min-height: 22px;
+    letter-spacing: 0.02em;
+}
+
+#content {
+    max-width: 900px;
+    margin-top: 50px;
+    display: none;
+}
+
+#content h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+    text-align: center;
+    color: #d7d7ff;
+    letter-spacing: 0.05em;
+}
+
+#content section {
+    background: #28283d;
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 18px rgba(40, 40, 61, 0.7);
+    transition: background 0.3s ease;
+}
+#content section:hover {
+    background: #323255;
+}
+
+#content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #a8a8ff;
+}
+
+pre {
+    background: #1e1e2f;
+    color: #cfd8ff;
+    padding: 20px;
+    overflow-x: auto;
+    max-height: 350px;
+    border-radius: 10px;
+    font-family: 'Source Code Pro', monospace, monospace;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    box-shadow: inset 0 0 12px #000a;
+    user-select: text;
+}
+</style>
+</head>
+<body>
+
+<div id="passwordBox">
+  <h2>Enter Password to View Projects</h2>
+  <input type="password" id="passwordInput" placeholder="Enter password" />
+  <button onclick="checkPassword()">Submit</button>
+  <div id="error"></div>
+</div>
+
+<div id="content">
+  <h1>My 10 C++ Projects Code</h1>
+
+  <!-- Project 1 -->
+  <section>
+    <h2>Project 1: Swap Numbers</h2>
+    <pre id="cpp1">
+#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    int a, b, temp;
+    cout &lt;&lt; "Enter First Number: ";
+    cin &gt;&gt; a;
+
+    cout &lt;&lt; "Enter Second Number: ";
+    cin &gt;&gt; b;
+
+    cout &lt;&lt; "Numbers before swapping: " &lt;&lt; a &lt;&lt; " " &lt;&lt; b &lt;&lt; endl;
+
+    temp = a;
+    a = b;
+    b = temp;
+
+    cout &lt;&lt; "Number after swapping: " &lt;&lt; a &lt;&lt; " " &lt;&lt; b &lt;&lt; endl;
+
+    return 0;
+}
+    </pre>
+    <button onclick="copyCode('cpp1')">📋 Copy Code</button>
+    <pre>
+Enter First Number: 12
+Enter Second Number: 31
+Numbers before swapping: 12 31
+Number after swapping: 31 12
+    </pre>
+  </section>
+
+  <!-- Project 2 -->
+  <section>
+    <h2>Project 2: Salary Calculation</h2>
+    <pre id="cpp2">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main () {
+    float basic_pay, HRA, TA, total_salary, professional_tax, net_salary;
+
+    cout &lt;&lt; "Enter the basic pay: ";
+    cin &gt;&gt; basic_pay;
+
+    HRA = 0.10 * basic_pay;
+    TA = 0.05 * basic_pay;
+    total_salary = basic_pay + HRA + TA;
+    professional_tax = 0.02 * total_salary;
+    net_salary = total_salary - professional_tax;
+
+    cout &lt;&lt; "Basic Pay: " &lt;&lt; basic_pay &lt;&lt; endl;
+    cout &lt;&lt; "HRA (10%): " &lt;&lt; HRA &lt;&lt; endl;
+    cout &lt;&lt; "TA (5%): " &lt;&lt; TA &lt;&lt; endl;
+    cout &lt;&lt; "Total: " &lt;&lt; total_salary &lt;&lt; endl;
+    cout &lt;&lt; "Tax (2%): " &lt;&lt; professional_tax &lt;&lt; endl;
+    cout &lt;&lt; "Net Salary: " &lt;&lt; net_salary &lt;&lt; endl;
+
+    return 0;
+}
+    </pre>
+    <button onclick="copyCode('cpp2')">📋 Copy Code</button>
+    <pre>
+Enter the basic pay: 50000
+Basic Pay: 50000
+HRA (10%): 5000
+TA (5%): 2500
+Total: 57500
+Tax (2%): 1150
+Net Salary: 56350
+    </pre>
+  </section>
+
+  <!-- Project 3 -->
+  <section>
+    <h2>Project 3: Calculate Marks</h2>
+    <pre id="cpp3">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    float sub1, sub2, sub3, sub4, sub5, total, percent;
+
+    cout &lt;&lt; "Enter marks for 5 subjects (out of 100, with spaces): ";
+    cin &gt;&gt; sub1 &gt;&gt; sub2 &gt;&gt; sub3 &gt;&gt; sub4 &gt;&gt; sub5;
+
+    total = sub1 + sub2 + sub3 + sub4 + sub5;
+    percent = (total / 500) * 100;
+
+    if (percent &gt;= 75)
+        cout &lt;&lt; "Grade: Distinction" &lt;&lt; endl;
+    else if (percent &gt;= 60)
+        cout &lt;&lt; "Grade: First Division" &lt;&lt; endl;
+    else if (percent &gt;= 50)
+        cout &lt;&lt; "Grade: Second Division" &lt;&lt; endl;
+    else if (percent &gt;= 40)
+        cout &lt;&lt; "Grade: Third Division" &lt;&lt; endl;
+    else
+        cout &lt;&lt; "Fail" &lt;&lt; endl;
+
+    return 0;
+}
+    </pre>
+    <button onclick="copyCode('cpp3')">📋 Copy Code</button>
+    <pre>
+Enter marks for 5 subjects: 84 56 64 78 99
+Grade: Distinction
+    </pre>
+  </section>
+
+  <!-- Project 4 -->
+  <section>
+    <h2>Project 4: Armstrong Number</h2>
+    <pre id="cpp4">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int num, originalNum, remainder, result = 0;
+
+    cout &lt;&lt; "Enter a three-digit number: ";
+    cin &gt;&gt; num;
+    originalNum = num;
+
+    while (originalNum != 0) {
+        remainder = originalNum % 10;
+        result += remainder * remainder * remainder;
+        originalNum /= 10;
+    }
+
+    if (result == num)
+        cout &lt;&lt; num &lt;&lt; " is an Armstrong number." &lt;&lt; endl;
+    else
+        cout &lt;&lt; num &lt;&lt; " is not an Armstrong number." &lt;&lt; endl;
+
+    return 0;
+}
+    </pre>
+    <button onclick="copyCode('cpp4')">📋 Copy Code</button>
+    <pre>
+Enter a three-digit number: 153
+153 is an Armstrong number.
+    </pre>
+  </section>
+
+  <!-- Project 5 -->
+  <section>
+    <h2>Project 5: Average of Numbers</h2>
+    <pre id="cpp5">
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int n;
+    cout &lt;&lt; "Enter number of elements: ";
+    cin &gt;&gt; n;
+
+    int arr[n], sum = 0;
+
+    cout &lt;&lt; "Enter elements (with spaces): ";
+    for (int i = 0; i &lt; n; i++) {
+        cin &gt;&gt; arr[i];
+        sum += arr[i];
+    }
+
+    float avg = sum / n;
+    cout &lt;&lt; "Average: " &lt;&lt; avg &lt;&lt; endl;
+
+    return 0;
+}
+    </pre>
+    <button onclick="copyCode('cpp5')">📋 Copy Code</button>
+    <pre>
+Enter number of elements: 5
+Enter elements: 1 2 3 4 5
+Average: 3
+    </pre>
+  </section>
+
+  <!-- Project 6 -->
+  <section>
+    <h2>Project 6: Palindrome</h2>
+    <pre id="cpp6">
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int main() {
+    string str;
+    cout &lt;&lt; "Enter a string: ";
+    cin &gt;&gt; str;
+
+    string rev = str;
+    reverse(rev.begin(), rev.end());
+
+    if (str == rev)
+        cout &lt;&lt; str &lt;&lt; " is a Palindrome." &lt;&lt; endl;
+    else
+        cout &lt;&lt; str &lt;&lt; " is not a Palindrome." &lt;&lt; endl;
+
+    return 0;
+}
+    </pre>
+    <button onclick="copyCode('cpp6')">📋 Copy Code</button>
+    <pre>
+Enter a string: dad
+dad is a Palindrome.
+    </pre>
+  </section>
+
+  <!-- Project 7 -->
+  <section>
+    <h2>Project 7: Vowels and Consonants</h2>
+    <pre id="cpp7">
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string str;
+    int vowels = 0, consonants = 0;
+
+    cout &lt;&lt; "Enter a string: ";
+    getline(cin, str);
+
+    for (char ch : str) {
+        ch = tolower(ch);
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+            vowels++;
+        else if (ch &gt;= 'a' &amp;&amp; ch &lt;= 'z')
+            consonants++;
+    }
+
+    cout &lt;&lt; "Vowels: " &lt;&lt; vowels &lt;&lt; "\nConsonants: " &lt;&lt; consonants &lt;&lt; endl;
+    return 0;
+}
+    </pre>
+    <button onclick="copyCode('cpp7')">📋 Copy Code</button>
+    <pre>
+Enter a string: dead
+Vowels: 2
+Consonants: 2
+    </pre>
+  </section>
+
+  <!-- Project 8 -->
+  <section>
+    <h2>Project 8: Factorial</h2>
+    <pre id="cpp8">
+#include &lt;iostream&gt;
+using namespace std;
+
+int factorial(int n) {
+    if (n &lt; 0) return -1;
+    int fact = 1;
+    for (int i = 1; i &lt;= n; i++)
+        fact *= i;
+    return fact;
+}
+
+int main() {
+    int num;
+    cout &lt;&lt; "Enter a number: ";
+    cin &gt;&gt; num;
+
+    int result = factorial(num);
+    if (result != -1)
+        cout &lt;&lt; "Factorial: " &lt;&lt; result &lt;&lt; endl;
+    else
+        cout &lt;&lt; "Factorial not defined for negative numbers." &lt;&lt; endl;
+
+    return 0;
+}
+    </pre>
+    <button onclick="copyCode('cpp8')">📋 Copy Code</button>
+    <pre>
+Enter a number: 5
+Factorial: 120
+    </pre>
+  </section>
+
+  <!-- Project 9 -->
+  <section>
+    <h2>Project 9: Prime Number</h2>
+    <pre id="cpp9">
+#include &lt;iostream&gt;
+using namespace std;
+
+bool isPrime(int n) {
+    if (n &lt; 2) return false;
+    for (int i = 2; i &lt;= n / 2; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+int main() {
+    int num;
+    cout &lt;&lt; "Enter a number: ";
+    cin &gt;&gt; num;
+
+    if (isPrime(num))
+        cout &lt;&lt; "Number is Prime" &lt;&lt; endl;
+    else
+        cout &lt;&lt; "Number is not Prime" &lt;&lt; endl;
+
+    return 0;
+}
+    </pre>
+    <button onclick="copyCode('cpp9')">📋 Copy Code</button>
+    <pre>
+Enter a number: 2
+Number is Prime
+    </pre>
+  </section>
+
+</div>
+
+<script>
+function copyCode(id) {
+    const code = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      alert("Code copied to clipboard!");
+    });
+}
+
+const password = "Deepak@#2006";
+
+function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+    const errorDiv = document.getElementById("error");
+
+    if (input === password) {
+        document.getElementById("passwordBox").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    } else {
+        errorDiv.textContent = "Incorrect password. Try again.";
+        document.getElementById("passwordInput").value = "";
+    }
+}
+
+document.getElementById("passwordInput").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        checkPassword();
+    }
+});
+</script>
+
+</body>
+</html>
